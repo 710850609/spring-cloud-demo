@@ -26,7 +26,8 @@
     </properties>
 
     <modules>
-        <!--<module>spring-cloud-producer</module>-->
+        <module>spring-cloud-producer</module>
+        <module>spring-cloud-consumer</module>
     </modules>
 
     <dependencyManagement>

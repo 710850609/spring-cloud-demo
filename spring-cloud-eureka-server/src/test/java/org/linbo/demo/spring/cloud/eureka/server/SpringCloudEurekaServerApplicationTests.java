@@ -1,15 +1,15 @@
-package org.linbo.demo.springcloudproducer;
+package org.linbo.demo.spring.cloud.eureka.server;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-public class SpringCloudProducerApplicationTests {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class SpringCloudEurekaServerApplicationTests {
 
-//    @Test
+    @Test
     public void contextLoads() {
     }
 
