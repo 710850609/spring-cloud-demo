@@ -16,42 +16,38 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 /**
- * 使用服务发现进行调用
+ * 使用ribbo做负载均衡的ResTemplate客户端
  * @author LinBo
  * @date 2018/12/3 19:41
  */
 @RestController
+@RequestMapping("/ribbon")
 @Slf4j
-public class UserController {
-
-    // 这里使用了 ribbo做负载均衡后，如果还用注入的restTemplate实例，请求真实的地址，会被ribbon误识别为服务id
-    // 直接使用new处理的实例进行请求
-    private RestTemplate restTemplate = new RestTemplate();
+public class UserRibbonController {
 
     @Resource
-    private EurekaUtil eurekaUtil;
+    private RestTemplate restTemplate;
 
     @Resource
-    private DiscoveryUtil discoveryUtil;
+    private LoadBalancerClient loadBalancerClient;
 
     private static final String SERVICE_ID = "PRODUCER";
 
-    @GetMapping("/eureka/{id}")
-    public User getByEureka(@PathVariable("id") Long id) {
-        String url = eurekaUtil.getServiceUrl(SERVICE_ID) + "users/" + id;
+    @GetMapping("/{id}")
+    public User getByRibbo(@PathVariable("id") Long id) {
+        String url = "http://" + SERVICE_ID + "/users/" + id;
         ResponseEntity<User> response = restTemplate.getForEntity(url, User.class);
         User user = response.getBody();
         log.debug("请求用户信息: {}", user);
         return user;
     }
 
-    @GetMapping("/discovery/{id}")
-    public User getByDiscovery(@PathVariable("id") Long id) {
-        String url = discoveryUtil.getServiceUrl(SERVICE_ID) + "users/" + id;
-        ResponseEntity<User> response = restTemplate.getForEntity(url, User.class);
-        User user = response.getBody();
-        log.debug("请求用户信息: {}", user);
-        return user;
+    @GetMapping("/instance")
+    public String logInstance() {
+        ServiceInstance producer = loadBalancerClient.choose(SERVICE_ID);
+        String instance = producer.getScheme() + "://" + producer.getHost() + ":" + producer.getPort() + "/" + producer.getServiceId();
+        log.debug("当前负载实例: {}", instance);
+        return instance;
     }
 
 }
