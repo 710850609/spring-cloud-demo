@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @since 2018-12-02
  */
 @RestController
-@RequestMapping("//users")
+@RequestMapping("/users")
 public class UserController {
 
     @Resource

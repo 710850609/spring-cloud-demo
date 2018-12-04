@@ -1,10 +1,10 @@
-package org.linbo.demo.springcloud.consumer;
+package org.linbo.demo.springcloud.consumer.service;
 
 import org.linbo.demo.springcloud.consumer.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author LinBo
@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(name = "producer")
 public interface IUserService {
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     User getById(@PathVariable("id") Long id);
 }

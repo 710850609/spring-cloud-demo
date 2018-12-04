@@ -42,8 +42,8 @@
         <!--远程调用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
-            <version>1.4.6.RELEASE</version>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <!--<version>1.4.6.RELEASE</version>-->
         </dependency>
 
         <dependency>

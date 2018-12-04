@@ -1,18 +1,12 @@
 package org.linbo.demo.springcloud.consumer.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.linbo.demo.springcloud.consumer.IUserService;
 import org.linbo.demo.springcloud.consumer.entity.User;
-import org.linbo.demo.springcloud.consumer.util.DiscoveryUtil;
-import org.linbo.demo.springcloud.consumer.util.EurekaUtil;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.http.ResponseEntity;
+import org.linbo.demo.springcloud.consumer.service.IUserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
