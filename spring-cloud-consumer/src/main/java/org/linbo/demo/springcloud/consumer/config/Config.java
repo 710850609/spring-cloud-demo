@@ -31,4 +31,6 @@ public class Config {
     public Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
     }
+
+
 }

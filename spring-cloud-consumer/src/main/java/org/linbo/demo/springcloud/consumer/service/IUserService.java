@@ -1,18 +1,24 @@
 package org.linbo.demo.springcloud.consumer.service;
 
-import org.linbo.demo.springcloud.consumer.entity.User;
+import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author LinBo
  * @date 2018/12/4 11:43
  */
-@FeignClient(name = "producer")
-public interface IUserService {
+@FeignClient(name = "producer", configuration = IUserService.UserFeignClientConfig.class)
+//@FeignClient(name = "producer")
+public interface IUserService extends IBasicUserserService {
 
-    @GetMapping("/users/{id}")
-    User getById(@PathVariable("id") Long id);
+    @Configuration
+    class UserFeignClientConfig {
+
+        @Bean
+        public BasicAuthRequestInterceptor userAuthRequestInterceptor() {
+            return new BasicAuthRequestInterceptor("user", "123456");
+        }
+    }
 }

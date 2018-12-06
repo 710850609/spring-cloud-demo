@@ -1,15 +1,16 @@
 package org.linbo.demo.springcloud.producer.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import lombok.extern.slf4j.Slf4j;
 import org.linbo.demo.springcloud.producer.entity.User;
 import org.linbo.demo.springcloud.producer.service.IUserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * <p>
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/users")
+@Slf4j
 public class UserController {
 
     @Resource
@@ -28,7 +30,43 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getById(@PathVariable("id") Long id) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        Object principal = authentication.getPrincipal();
+//        if (principal instanceof UserDetails) {
+//            UserDetails userDetails = (UserDetails) principal;
+//            String username = userDetails.getUsername();
+//            log.info("请求用户名: {}", username);
+//        }
         return userService.getById(id);
+    }
+
+    @GetMapping("/whoami")
+    public String getByUser() {
+        String userName = "";
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        Object principal = authentication.getPrincipal();
+//        if (principal instanceof UserDetails) {
+//            UserDetails userDetails = (UserDetails) principal;
+//            Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+//            userName = userDetails.getUsername();
+//            log.debug("请求用户: {}, {}", userDetails.getUsername(), userDetails.getPassword());
+//        }
+        return userName;
+    }
+    
+    @GetMapping("")
+    public List<User> get(User query, HttpServletRequest request) {
+        log.debug("请求查询: {}", query);
+        System.out.println(request.getQueryString());
+        Wrapper<User> wrapper = new QueryWrapper<>(query);
+        List<User> list = userService.list(wrapper);
+        return list;
+    }
+
+    @PostMapping("")
+    public User post(@RequestBody User user) {
+        log.debug("post user: {}", user);
+        return user;
     }
 
 }
