@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @Slf4j
 public class UserFeignController {
 
-//    @Resource
+    @Resource
     private IUserService userService;
 
     @GetMapping("/{id}")
