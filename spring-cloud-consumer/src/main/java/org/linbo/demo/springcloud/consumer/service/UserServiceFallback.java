@@ -5,6 +5,7 @@ import org.linbo.demo.springcloud.consumer.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author LinBo
@@ -26,5 +27,10 @@ public class UserServiceFallback implements IUserService {
     @Override
     public User post(User user) {
         return new User();
+    }
+
+    @Override
+    public List<User> map(Map<String, Object> params) {
+        return Lists.newArrayList();
     }
 }

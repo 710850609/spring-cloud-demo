@@ -4,6 +4,7 @@ import org.linbo.demo.springcloud.consumer.entity.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author LinBo
@@ -15,7 +16,10 @@ public interface IBasicUserserService {
     User getById(@PathVariable("id") Long id);
 
     @GetMapping("/users")
-    List<User> get(User query);
+    List<User> get(@RequestParam User query);
+
+    @GetMapping("/users")
+    List<User> map(@RequestParam Map<String, Object> params);
 
     @PostMapping("/users")
     User post(@RequestBody User user);
