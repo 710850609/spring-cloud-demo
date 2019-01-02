@@ -27,10 +27,10 @@ public class Config {
      * FULL: 记录请求和响应的header、body和元数据
      * @return
      */
-    @Bean
-    public Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
-    }
+//    @Bean
+//    public Logger.Level feignLoggerLevel() {
+//        return Logger.Level.FULL;
+//    }
 
 
 }

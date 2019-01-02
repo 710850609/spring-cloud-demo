@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author 林勃
@@ -45,20 +45,6 @@ public class UserController {
         return userService.getById(id);
     }
 
-    @GetMapping("/whoami")
-    public String getByUser() {
-        String userName = "";
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Object principal = authentication.getPrincipal();
-        if (principal instanceof UserDetails) {
-            UserDetails userDetails = (UserDetails) principal;
-            Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
-            userName = userDetails.getUsername();
-            log.debug("请求用户: {}, {}", userDetails.getUsername(), userDetails.getPassword());
-        }
-        return userName;
-    }
-    
     @GetMapping("")
     public List<User> get(User query, HttpServletRequest request) {
         log.debug("请求查询: {}", query);
@@ -72,6 +58,27 @@ public class UserController {
     public User post(@RequestBody User user) {
         log.debug("post user: {}", user);
         return user;
+    }
+
+    @PutMapping("/{id}")
+    public User put(@RequestBody User user) {
+        log.debug("put user: {}", user);
+        userService.updateById(user);
+        return user;
+    }
+
+    @GetMapping("/whoami")
+    public String getByUser() {
+        String userName = "";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
+        if (principal instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) principal;
+            Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+            userName = userDetails.getUsername();
+            log.debug("请求用户: {}, {}", userDetails.getUsername(), userDetails.getPassword());
+        }
+        return userName;
     }
 
 }

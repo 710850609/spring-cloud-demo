@@ -2,13 +2,14 @@ package org.linbo.demo.springcloud.producer.entity;
 
 import java.math.BigDecimal;
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author 林勃

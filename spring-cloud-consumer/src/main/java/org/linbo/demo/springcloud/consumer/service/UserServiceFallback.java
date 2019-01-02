@@ -1,9 +1,9 @@
 package org.linbo.demo.springcloud.consumer.service;
 
-import com.google.common.collect.Lists;
 import org.linbo.demo.springcloud.consumer.entity.User;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +21,7 @@ public class UserServiceFallback implements IUserService {
 
     @Override
     public List<User> get(User query) {
-        return Lists.newArrayList();
+        return Collections.EMPTY_LIST;
     }
 
     @Override
@@ -31,6 +31,6 @@ public class UserServiceFallback implements IUserService {
 
     @Override
     public List<User> map(Map<String, Object> params) {
-        return Lists.newArrayList();
+        return Collections.EMPTY_LIST;
     }
 }

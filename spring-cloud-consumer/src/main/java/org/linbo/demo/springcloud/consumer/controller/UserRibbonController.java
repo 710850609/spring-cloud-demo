@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 
 /**
  * 使用ribbo做负载均衡的ResTemplate客户端
+ *
  * @author LinBo
  * @date 2018/12/3 19:41
  */
