@@ -1,17 +1,12 @@
 package org.linbo.demo.springcloud.consumer.service;
 
 import feign.hystrix.FallbackFactory;
-import org.linbo.demo.springcloud.consumer.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * @author LinBo
- * @date 2019/1/2 16:22
  */
 @Component
 public class UserFallbackFactory implements FallbackFactory<IUserService> {

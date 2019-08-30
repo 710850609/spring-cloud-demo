@@ -23,7 +23,6 @@ import java.util.Map;
  * 使用带有安全认证的feign作为服务调用客户端
  *
  * @author LinBo
- * @date 2018/12/3 19:41
  */
 @RestController
 @RequestMapping("/feign-object")

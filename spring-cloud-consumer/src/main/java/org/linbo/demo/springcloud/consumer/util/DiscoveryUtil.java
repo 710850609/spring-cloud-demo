@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * @author LinBo
- * @date 2018/12/3 19:53
  */
 @Component
 public class DiscoveryUtil {

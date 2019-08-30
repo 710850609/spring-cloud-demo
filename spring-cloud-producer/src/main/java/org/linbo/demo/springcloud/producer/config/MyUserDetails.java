@@ -12,7 +12,6 @@ import java.util.Collection;
 
 /**
  * @author LinBo
- * @date 2018/12/5 9:29
  */
 @Component
 public class MyUserDetails implements UserDetailsService {

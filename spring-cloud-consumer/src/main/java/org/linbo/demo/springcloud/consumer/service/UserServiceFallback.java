@@ -9,7 +9,6 @@ import java.util.Map;
 
 /**
  * @author LinBo
- * @date 2018-12-9 16:07
  */
 @Component
 public class UserServiceFallback implements IUserService {

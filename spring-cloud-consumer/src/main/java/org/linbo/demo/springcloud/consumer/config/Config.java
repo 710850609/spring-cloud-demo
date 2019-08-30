@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * @author LinBo
- * @date 2018/12/3 20:01
  */
 @Configuration
 public class Config {

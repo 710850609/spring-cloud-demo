@@ -5,7 +5,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 
 /**
  * @author LinBo
- * @date 2018/12/4 11:43
  */
 @FeignClient(name = "producer", configuration = UserFeignClientConfig.class, fallbackFactory = UserFallbackFactory.class)
 public interface IUserService extends IBasicUserserService {

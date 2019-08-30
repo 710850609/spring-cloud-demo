@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-build</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
+
     <groupId>org.linbo.demo</groupId>
     <artifactId>spring-cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -11,20 +17,49 @@
     <name>spring-cloud</name>
     <description>spring cloud示例</description>
 
+    <modules>
+        <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-interface</module>
+        <module>spring-cloud-producer</module>
+        <module>spring-cloud-consumer</module>
+        <!--<module>hystrix-turbine</module>-->
+    </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <mybatis-plus.version>3.0.6</mybatis-plus.version>
-        <spring.cloud.version>2.1.7.RELEASE</spring.cloud.version>
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>
     </properties>
 
-    <modules>
-        <module>spring-cloud-producer</module>
-        <module>spring-cloud-consumer</module>
-        <module>spring-cloud-eureka-server</module>
-        <module>hystrix-turbine</module>
-    </modules>
+    <dependencies>
+        <!-- 这里的spring-boot相关jar就作为子项目默认引用，但单对于接口模块是多余的，但接口模块一般是集成在spring-boot项目中，所以忽略 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
 
     <dependencyManagement>
         <dependencies>
@@ -33,7 +68,14 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

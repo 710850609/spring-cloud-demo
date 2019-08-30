@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
  * 自定义Fegin配置
  *
  * @author LinBo
- * @date 2019/1/2 13:52
  */
 @Configuration
 public class UserFeignClientConfig {

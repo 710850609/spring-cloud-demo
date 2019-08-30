@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 
 /**
  * @author LinBo
- * @date 2018/12/3 19:45
  */
 @Component
 public class EurekaUtil {

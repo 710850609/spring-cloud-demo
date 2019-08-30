@@ -7,14 +7,6 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author 林勃
- * @since 2018-12-02
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)

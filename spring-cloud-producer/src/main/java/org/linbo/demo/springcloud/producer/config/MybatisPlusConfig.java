@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author LinBo
- * @date 2018-12-2 13:06
  */
 @Configuration
 public class MybatisPlusConfig {

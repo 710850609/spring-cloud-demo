@@ -19,7 +19,6 @@ import javax.annotation.Resource;
  * 使用服务发现进行调用
  *
  * @author LinBo
- * @date 2018/12/3 19:41
  */
 @RestController
 @Slf4j

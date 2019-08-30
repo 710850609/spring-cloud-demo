@@ -14,7 +14,6 @@ import javax.annotation.Resource;
  * 使用feign作为服务调用客户端
  *
  * @author LinBo
- * @date 2018/12/3 19:41
  */
 @RestController
 @RequestMapping("/feign")

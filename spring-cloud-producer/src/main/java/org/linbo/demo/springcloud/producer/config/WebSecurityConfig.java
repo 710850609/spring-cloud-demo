@@ -16,7 +16,6 @@ import javax.annotation.Resource;
 
 /**
  * @author LinBo
- * @date 2018/12/4 15:06
  */
 @Configuration
 @EnableWebSecurity

@@ -1,7 +1,15 @@
 # spring-cloud-demo
 Spring Cloud示例
 
-# 一、搭建过程遇到的问题
+# 一、项目模块说明
+
+- [spring-cloud-producer](spring-cloud-producer) : 
+- [spring-cloud-consumer](spring-cloud-consumer) :
+- [spring-cloud-eureka-server](spring-cloud-eureka-server) :
+
+
+
+# 二、搭建过程遇到的问题
 ## 1、 Feign定义远程接口传递多个参数
 ### 1.1、 GET请求、DELETE请求
 - a、使用`Map<String, Object>`请教参数封装

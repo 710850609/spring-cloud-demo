@@ -8,10 +8,6 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- *
- * </p>
- *
  * @author 林勃
  * @since 2018-12-02
  */

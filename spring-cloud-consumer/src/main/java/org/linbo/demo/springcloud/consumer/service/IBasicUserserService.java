@@ -8,7 +8,6 @@ import java.util.Map;
 
 /**
  * @author LinBo
- * @date 2018/12/5 15:34
  */
 public interface IBasicUserserService {
 
