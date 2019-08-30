@@ -3,9 +3,10 @@ Spring Cloud示例
 
 # 一、项目模块说明
 
-- [spring-cloud-producer](spring-cloud-producer) : 
-- [spring-cloud-consumer](spring-cloud-consumer) :
-- [spring-cloud-eureka-server](spring-cloud-eureka-server) :
+- [spring-cloud-eureka-server](spring-cloud-eureka-server) : Eureka服务注册与发现
+- [spring-cloud-interface](spring-cloud-interface) : 内部接口定义
+- [spring-cloud-producer](spring-cloud-producer) : 内部服务提供者
+- [spring-cloud-consumer](spring-cloud-consumer) : 内部服务消费者
 
 
 
